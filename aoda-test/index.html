@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta charset="utf-8">
+	<title>BMO - UI AODA Test</title>
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+	<link rel="stylesheet" href="css/reset.css" />
+	<link rel="stylesheet" href="css/your-styles-here.css" />
+	<link rel="stylesheet" href="fonts/heebo.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<body>
+	<div class="test-container">
+		<h1 class="test-heading">BMO Accessiblity Test for UI Devs</h1>
+		<header role="banner">
+			<h1 class="test-heading">Create an accessible navigation</h1>
+			<button>Show/Hide Nav</button>
+			<nav role="navigation">
+				<span>Home</span>
+				<span>About</span>
+				<span>Banking</span>
+				<span>Hockey</span>
+				<span>Good Food</span>
+				<span>UI Development</span>
+				<span>Contact</span>
+			</nav>
+		</header>
+		<main class="main-content" id="main-content" role="main">
+			<h1 class="test-heading">Create an accessible form</h1>
+			<form>
+				<h2 class="test-heading2">Text Inputs</h2>
+
+				<label for="textinput">Create Text Input with label</label>
+				<input type="text" placeholder="Create Text Input with label" id="textinput" required
+					aria-required="true">
+				<label for="numberinput">Create a Number input with label</label>
+				<input type="text" placeholder="Create a Number input with label" id="numberinput" required
+					aria-required="true">
+				<label for="emailinput">Create an Email with label</label>
+
+				<input type="text" placeholder="Create an Email with label" id="emailinput" required
+					aria-required="true">
+
+				<h2 class="test-heading2">Radio Inputs</h2>
+
+				<label for="first_radio">This is the first radio button</label>
+				<input type="radio" id="first_radio" required aria-required="true">
+
+				<label for="second_radio">This is the second radio button</label>
+				<input type="radio" id="second_radio" required aria-required="true">
+
+				<label for="third_radio">This is the third radio button</label>
+				<input type="radio" id="third_radio" required aria-required="true">
+
+				<span>create a group of alteast 3 radio inputs with labels</span>
+
+
+				<h2 class="test-heading2">Multiline Input</h2>
+				<!-- <input type="text" placeholder="Create Multiline input with label"> -->
+
+				<label for="multi_line">Multi-Line Input Below</label>
+				<textarea rows="5" cols="60" name="description" id="multi_line" required aria-required="true">
+					This is my Multiline input...
+				 </textarea>
+			</form>
+
+			<h1 class="test-heading">Bonus Marks: Create an accessible modal with Keyboard Trap.(only if everything else
+				is complete)</h1>
+			<button class="modal-trigger">Modal Trigger</button>
+
+			<div class="modal" tabindex="-1" aria-labelledby="modal_title" aria-describedby="modal_content" aria-hidden="true">
+				<button>Close Modal</button>
+				<div class="modal-header">
+					<div>
+						<h1 id="modal_title">This is a modal title 1</h1>
+					</div>
+				</div>
+				<div class="modal-body" id="modal_content">
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+						labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+						laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+						voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+					</p>
+				</div>
+			</div>
+
+			<div class="overlay"></div>
+
+		</main>
+		<footer role="contentinfo">
+			<h1 class="test-heading">footer</h1>
+		</footer>
+	</div>
+	<script>
+		$('.modal-trigger').on('click', function (e) {
+			e.preventDefault();
+			$(this).next().addClass('active');
+			$("html *").addClass("disabled").attr({"tabindex": -1, "aria-hidden":"true"});
+			$('.modal').focus()
+			$('.modal *').attr({'tabindex': 0, "aria-hidden": "false"});
+
+		})
+		$('.modal button').on('click', function (e) {
+			e.preventDefault();
+			$("html *").removeClass("disabled").attr({"tabindex": 0, "aria-hidden":"false"});
+			$('.modal *').attr({'tabindex': -1, "aria-hidden": "true"});
+
+$('.modal').removeClass('active');
+		})
+		$('header button').on('click', function () {
+			$(this).next().slideToggle();
+		})
+	</script>
+	<script src="assets/js/jquery-1.11.3.min.js"></script>
+	<script src="js/your-js-here.js"></script>
+</body>
+
+</html>

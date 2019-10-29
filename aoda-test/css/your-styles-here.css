@@ -1,0 +1,43 @@
+@charset "utf-8";
+/* CSS Document */
+
+header nav{
+    display:none;
+}
+
+
+input, textarea {
+    display: block;
+}
+label, input {
+    margin: 10px 5px;
+}
+nav span {
+    display: block;
+    padding: 5px 0;
+}
+
+div.modal {
+    display: none;
+}
+
+div.modal.active {
+    display: block;
+}
+div.modal.active p, div.modal.active h1 {
+    color: #fff;
+}
+
+div.modal.active {
+    position: absolute;
+    z-index: 1;
+    left: 25vh;
+    top: 34vh;
+    width: 600px;
+    height: 400px;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: blue;
+    padding: 10px;
+    margin: 0 auto;
+}
